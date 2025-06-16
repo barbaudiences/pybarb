@@ -124,6 +124,9 @@ class BarbAPI:
             for s in api_data
             if viewing_station_name.lower() == s["viewing_station_name"].lower()
         ]
+
+        viewing_station_code = list(set(viewing_station_code))
+        
         if len(viewing_station_code) == 1:
             viewing_station_code = viewing_station_code[0]
         else:
