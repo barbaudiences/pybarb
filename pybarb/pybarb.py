@@ -124,10 +124,17 @@ class BarbAPI:
             for s in api_data
             if viewing_station_name.lower() == s["viewing_station_name"].lower()
         ]
+
+        viewing_station_code = list(set(viewing_station_code))
+        
         if len(viewing_station_code) == 1:
             viewing_station_code = viewing_station_code[0]
+        elif len(viewing_station_code) > 1: # station names that have had their station code changed TODO: handle properly
+            raise Exception(f"Station name {viewing_station_name} has had a station code change. Currently unsupported in pyBarb. Please contact support.")
+        
         else:
-            raise Exception(f"Viewing station name {viewing_station_name} not found.")
+            raise Exception(f"Station name {viewing_station_name} not found.")
+
         return viewing_station_code
 
     def get_panel_code(self, panel_region):
