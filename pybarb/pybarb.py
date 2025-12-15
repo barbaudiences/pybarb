@@ -904,6 +904,11 @@ class AdvertisingSpotsResultSet(APIResultSet):
                             ]
                             if e["clearcast_information"] is not None
                             else None,
+                            "clearcast_product_name": e["clearcast_information"][
+                            "product_name"
+                            ]
+                            if e["clearcast_information"] is not None
+                            else None,
                             "campaign_approval_id": e["campaign_approval_id"],
                             "sales_house_name": e["sales_house"]["sales_house_name"],
                             "audience_name": v["description"],
