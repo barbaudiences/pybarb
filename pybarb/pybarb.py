@@ -813,9 +813,9 @@ class ProgrammeRatingsResultSet(APIResultSet):
                             "genre": genre,
                             "audience_name": v["description"],
                             "audience_size_hundreds": v["audience_size_hundreds"],
-                            "audience_target_size_hundreds": v[
+                            "audience_target_size_hundreds": v.get(
                                 "target_size_in_hundreds"
-                            ],
+                            ),
                         }
                     )
         except:
@@ -869,9 +869,9 @@ class AdvertisingSpotsResultSet(APIResultSet):
                             "position_in_break": e["position_in_break"],
                             "broadcaster_spot_number": e["broadcaster_spot_number"],
                             "commercial_number": e["commercial_number"],
-                            "clearcast_commercial_title": e["clearcast_information"][
+                            "clearcast_commercial_title": e["clearcast_information"].get(
                                 "clearcast_commercial_title"
-                            ]
+                            )
                             if e["clearcast_information"] is not None
                             else None,
                             "clearcast_match_group_code": e["clearcast_information"][
@@ -913,9 +913,9 @@ class AdvertisingSpotsResultSet(APIResultSet):
                             "sales_house_name": e["sales_house"]["sales_house_name"],
                             "audience_name": v["description"],
                             "audience_size_hundreds": v["audience_size_hundreds"],
-                            "audience_target_size_hundreds": v[
+                            "audience_target_size_hundreds": v.get(
                                 "target_size_in_hundreds"
-                            ],
+                            ),
                         }
                     )
             # Convert the result into a data frame
@@ -967,9 +967,9 @@ class AudiencesByTimeResultSet(APIResultSet):
                             ]["standard_datetime"],
                             "audience_name": v["description"],
                             "audience_size_hundreds": v["audience_size_hundreds"],
-                            "audience_target_size_hundreds": v[
+                            "audience_target_size_hundreds": v.get(
                                 "target_size_in_hundreds"
-                            ],
+                            ),
                         }
                     )
             # Convert the result into a data frame
